@@ -180,7 +180,7 @@ export default function TabLayout() {
             backgroundColor: 'rgba(255,255,255,0.9)',
           },
           android: {
-            height: 55,
+            height: 60,
             backgroundColor: '#fff',
             elevation: 5,
             borderTopWidth: 0,

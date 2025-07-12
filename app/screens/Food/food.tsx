@@ -5,7 +5,9 @@ import {
   FlatList,
   Image,
   ImageSourcePropType,
+  Platform,
   SafeAreaView,
+  StatusBar,
   StyleSheet,
   Text,
   TextInput,
@@ -78,7 +80,7 @@ export default function StoreProductList() {
   return (
     <SafeAreaView style={styles.container}>
       {/* Header */}
-      <View style={[styles.header, {paddingTop: insets.top, }]}>
+      <View style={[styles.header]}>
         <TouchableOpacity style={styles.iconButton}>
         <Link href="/tienda">
           <ArrowLeft size={20} />
@@ -163,12 +165,13 @@ export default function StoreProductList() {
 
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#FFF' },
+  container: { flex: 1, backgroundColor: '#FFF',paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, },
   header: {
-    padding: 16,
+    paddingHorizontal: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderBottomWidth: 1,
+    paddingBottom:10,
     borderColor: '#E5E7EB',
   },
   iconButton: {
@@ -235,8 +238,6 @@ productCaard:{
   marginBottom: 0,
   borderRadius: 12,
   backgroundColor: '#FFFFFF',
-
-
   gap: 12,
 },
 productCard: {

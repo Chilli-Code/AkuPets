@@ -71,7 +71,7 @@ const Menu: React.FC<MenuProps> = ({ name, onLogout, onClose }) => {
             label="Mensajes"
             onPress={() => {
               onClose?.();
-              router.push('/screens/InfoUser/ChatMessage');
+              router.push('/screens/InfoUser/ListMessage');
             }}
           />
 
@@ -127,12 +127,12 @@ const styles = StyleSheet.create({
   menuContainer: {
     width: width * 0.75,
     zIndex:9999,
-    
     backgroundColor: '#ffffff',
     padding:20,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   header: {
+    marginTop:Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     alignItems: 'center',
     marginBottom: 10,
     flexDirection:"row",

@@ -21,8 +21,12 @@ const { width } = Dimensions.get("window");
 export default function UserPets() {
   const router = useRouter();
 
-  function handleAddPets(){
+  function handleAddPets() {
     router.push('/screens/Welcome/AddPets');
+  }
+
+  function handleContinue() {
+    router.push('/(tabs)')
   }
 
   return (
@@ -37,21 +41,55 @@ export default function UserPets() {
         <View style={styles.containerPetsPhoto}>
           <View style={styles.containerSub}>
             <Text style={styles.titleSub}>Perros</Text>
-            <TouchableOpacity>
-              <Feather name="chevron-right" size={20} color="#6b7280" />
-              <Text style={styles.link}>Ver Mas</Text>
+            <TouchableOpacity style={{ display: "flex", justifyContent: "center", flexDirection: "row", }}>
+              <Text style={styles.link}>Ver Todos</Text>
+              <Feather name="chevron-right" size={20} color="#6b7280" style={{ marginLeft: 20, }} />
             </TouchableOpacity>
           </View>
 
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20 }}>
             <TouchableOpacity style={styles.smallCard}>
               <ImageBackground
-                source={require("@/assets/images/citas.jpg")}
+                source={require("@/assets/images/Pets/Dog1.jpg")}
                 style={styles.smallCardImage}
               >
                 <LinearGradient colors={["transparent", "rgba(0,0,0,0.6)", "#000000ba"]} style={styles.gradient} />
                 <TouchableOpacity style={styles.iconDel}>
-                  <Feather name="trash-2" size={20} color="#d7083f" />
+                  <Feather name="trash-2" size={20} color="#fff" />
+                </TouchableOpacity>
+                <View style={{ position: "relative", top: 95 }}>
+                  <Text style={styles.nameDog}>logan</Text>
+                  <Text style={styles.InfoRaza}>Pitbull - 5 años</Text>
+                </View>
+              </ImageBackground>
+            </TouchableOpacity>
+
+
+            <TouchableOpacity style={styles.smallCard}>
+              <ImageBackground
+                source={require("@/assets/images/Pets/Dog2.jpg")}
+                style={styles.smallCardImage}
+              >
+                <LinearGradient colors={["transparent", "rgba(0,0,0,0.6)", "#000000ba"]} style={styles.gradient} />
+                <TouchableOpacity style={styles.iconDel}>
+                  <Feather name="trash-2" size={20} color="#fff" />
+                </TouchableOpacity>
+                <View style={{ position: "relative", top: 95 }}>
+                  <Text style={styles.nameDog}>Zeus</Text>
+                  <Text style={styles.InfoRaza}>Show Show - 4 años</Text>
+                </View>
+              </ImageBackground>
+            </TouchableOpacity>
+
+            
+            <TouchableOpacity style={styles.smallCard}>
+              <ImageBackground
+                source={require("@/assets/images/Pets/Dog1.jpg")}
+                style={styles.smallCardImage}
+              >
+                <LinearGradient colors={["transparent", "rgba(0,0,0,0.6)", "#000000ba"]} style={styles.gradient} />
+                <TouchableOpacity style={styles.iconDel}>
+                  <Feather name="trash-2" size={20} color="#fff" />
                 </TouchableOpacity>
                 <View style={{ position: "relative", top: 95 }}>
                   <Text style={styles.nameDog}>Tobias</Text>
@@ -66,33 +104,64 @@ export default function UserPets() {
         <View style={styles.containerPetsPhoto}>
           <View style={styles.containerSub}>
             <Text style={styles.titleSub}>Gatos</Text>
-            <TouchableOpacity>
-              <Feather name="chevron-right" size={20} color="#6b7280" />
-              <Text style={styles.link}>Ver Mas</Text>
+            <TouchableOpacity style={{ display: "flex", justifyContent: "center", flexDirection: "row", }}>
+              <Text style={styles.link}>Ver Todos</Text>
+              <Feather name="chevron-right" size={20} color="#6b7280" style={{ marginLeft: 20, }} />
             </TouchableOpacity>
           </View>
 
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20 }}>
             <TouchableOpacity style={styles.smallCard}>
               <ImageBackground
-                source={require("@/assets/images/citas.jpg")}
+                source={require("@/assets/images/Pets/Cat1.jpg")}
                 style={styles.smallCardImage}
               >
                 <LinearGradient colors={["transparent", "rgba(0,0,0,0.6)", "#000000ba"]} style={styles.gradient} />
                 <TouchableOpacity style={styles.iconDel}>
-                  <Feather name="trash-2" size={20} color="#d7083f" />
+                  <Feather name="trash-2" size={20} color="#fff" />
                 </TouchableOpacity>
                 <View style={{ position: "relative", top: 95 }}>
-                  <Text style={styles.nameDog}>Mishi</Text>
-                  <Text style={styles.InfoRaza}>Persa</Text>
+                  <Text style={styles.nameDog}>Max</Text>
+                  <Text style={styles.InfoRaza}>Manes - 5 años</Text>
+                </View>
+              </ImageBackground>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.smallCard}>
+              <ImageBackground
+                source={require("@/assets/images/Pets/Cat2.jpg")}
+                style={styles.smallCardImage}
+              >
+                <LinearGradient colors={["transparent", "rgba(0,0,0,0.6)", "#000000ba"]} style={styles.gradient} />
+                <TouchableOpacity style={styles.iconDel}>
+                  <Feather name="trash-2" size={20} color="#fff" />
+                </TouchableOpacity>
+                <View style={{ position: "relative", top: 95 }}>
+                  <Text style={styles.nameDog}>Zeus</Text>
+                  <Text style={styles.InfoRaza}>2 años</Text>
+                </View>
+              </ImageBackground>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.smallCard}>
+              <ImageBackground
+                source={require("@/assets/images/Pets/Cat1.jpg")}
+                style={styles.smallCardImage}
+              >
+                <LinearGradient colors={["transparent", "rgba(0,0,0,0.6)", "#000000ba"]} style={styles.gradient} />
+                <TouchableOpacity style={styles.iconDel}>
+                  <Feather name="trash-2" size={20} color="#fff" />
+                </TouchableOpacity>
+                <View style={{ position: "relative", top: 95 }}>
+                  <Text style={styles.nameDog}>Max</Text>
+                  <Text style={styles.InfoRaza}>Manes - 5 años</Text>
                 </View>
               </ImageBackground>
             </TouchableOpacity>
           </ScrollView>
+
         </View>
       </ScrollView>
 
-        <View style={styles.buttonContainer}>
+      <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.cancelButton}
           onPress={handleAddPets}
@@ -100,7 +169,7 @@ export default function UserPets() {
           <Text style={styles.cancelButtonText}>Agregar Mascota</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={ styles.submitButton}>
+        <TouchableOpacity style={styles.submitButton} onPress={handleContinue}>
           <Text style={styles.submitButtonText}>Continuar</Text>
         </TouchableOpacity>
       </View>
@@ -109,13 +178,13 @@ export default function UserPets() {
 }
 
 const styles = StyleSheet.create({
-  gradient: {
-    ...StyleSheet.absoluteFillObject,
-  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
+  gradient: {
+    ...StyleSheet.absoluteFillObject,
   },
   scrollContainer: {
     paddingBottom: 30,
@@ -155,6 +224,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#6b7280",
     fontWeight: "600",
+
   },
   smallCard: {
     width: width * 0.4,
@@ -174,26 +244,30 @@ const styles = StyleSheet.create({
     right: 3,
     top: 5,
     zIndex: 2,
+    backgroundColor: "#d1c7c7b0",
+    padding: 4,
+    borderRadius: 20
   },
   nameDog: {
-    fontSize: 18,
+    fontSize: 19,
     fontWeight: "700",
     color: "#fff",
     paddingLeft: 10,
   },
   InfoRaza: {
-    fontSize: 13,
+    fontSize: 14,
     color: "#c8cbd1",
     paddingLeft: 13,
-    fontWeight: "600",
+    fontWeight: "300",
   },
-  
+
   buttonContainer: {
     flexDirection: "row",
-    paddingHorizontal:10,
+    paddingHorizontal: 12,
     gap: 10,
     marginTop: 30,
     justifyContent: "space-between",
+    marginBottom: 10
   },
   cancelButton: {
     flex: 1,
@@ -215,7 +289,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 8,
   },
-    submitButtonText: {
+  submitButtonText: {
     textAlign: "center",
     color: "#fff",
     fontWeight: "600",

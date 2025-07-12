@@ -1,9 +1,12 @@
+import Estadistic from '@/components/Estadistic';
 import HeaderHome from '@/components/HeaderHome.js';
 import Menu from "@/components/Menu/Menu";
+import PublicidadAndAnuncio from "@/components/PublicidadAndAnuncio";
 import { Feather } from '@expo/vector-icons';
 import { useRouter } from "expo-router"; // Ajusta según tu router
 import React, { useState } from 'react';
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+
 
 export default function HomeScreen() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -11,7 +14,7 @@ export default function HomeScreen() {
   const router = useRouter();
 
   function handleContinue() {
-    router.push("/screens/InfoUser/ChatMessage"); // Cambia la ruta si es necesario
+    router.push("/screens/Profile/ProfileCard"); // Cambia la ruta si es necesario
   }
   
 
@@ -32,9 +35,11 @@ export default function HomeScreen() {
       )}
 
       <ScrollView contentContainerStyle={styles.scroll}>
+          {/*  
             <View style={styles.banner}>
             <Text style={styles.bannerText}>Publicidad Aqui</Text>
           </View>
+            */}
         {/* Buscador */}
         <View style={styles.searchBar}>
           <TextInput placeholder="¿Qué necesitas?" style={styles.searchInput} />
@@ -82,6 +87,11 @@ export default function HomeScreen() {
             <Feather name="message-circle" size={20} style={{ marginLeft: 'auto' }} />
           </View>
         </View>
+
+          {/*Estadisticas */}
+          <Estadistic />
+          {/*Ofertas y anuncios */}
+          <PublicidadAndAnuncio />
       </ScrollView>
     </View>
   );
@@ -161,6 +171,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 16,
     elevation: 2,
+    marginBottom:20
   },
   dateRow: {
     flexDirection: 'row',
@@ -187,6 +198,7 @@ const styles = StyleSheet.create({
     banner: {
     backgroundColor: '#eef',
     width: '100%',
+    height:200,
     marginBottom: 30,
     borderRadius: 10,
     alignItems: 'center',

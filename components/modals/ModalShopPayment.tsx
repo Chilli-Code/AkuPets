@@ -114,7 +114,7 @@ const ModalShopPayment: React.FC<ModalShopPaymentProps> = ({
 
                   <Text style={styles.sectionTitle}>Método de pago</Text>
                   
-                  {[1, 2].map((_, index) => (
+                  {[1,].map((_, index) => (
                     <TouchableOpacity key={index} style={styles.card}>
                       <View style={styles.cardContent}>
                         <Feather name="credit-card" width={24} height={24} />

@@ -44,7 +44,7 @@ export default function AddPets() {
 
     function handleComplete(){
         if(!isFormComplete) return;
-        router.push('/screens/InfoUser/UserPets');
+        router.push('/screens/Welcome/AddPetsSucces');
     }
 
     return (
@@ -230,7 +230,7 @@ buttons: {
 },
 buttonContainer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: 5,
     left: 20,
     right: 20,
 },
@@ -240,7 +240,7 @@ buttonBase:{
     alignItems:"center",
 },
 buttonEnabled:{
-    backgroundColor:"#6366f1"
+    backgroundColor:"#2563eb"
 },
 buttonDisabled: {
     backgroundColor: '#c7d2fe'

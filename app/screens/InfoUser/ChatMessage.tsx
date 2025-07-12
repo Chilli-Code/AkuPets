@@ -1,23 +1,23 @@
 
+import { Feather } from "@expo/vector-icons";
 import React from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-  Image,
-  SafeAreaView,
   FlatList,
+  Image,
   Platform,
+  SafeAreaView,
   StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { Feather } from "@expo/vector-icons";
 
 export default function ChatMessage() {
   const messages = [
-    { id: "1", text: "Â¡Hola! Â¿Todo listo para el paseo?", type: "received" },
-    { id: "2", text: "Â, salimos en 10 minutos!", type: "sent" },
+    { id: "1", text: "¡Hola! ¿Todo listo para el paseo?", type: "received" },
+    { id: "2", text: ", salimos en 10 minutos!", type: "sent" },
   ];
 
   const renderMessage = ({ item }: any) => (
@@ -40,11 +40,11 @@ export default function ChatMessage() {
         </TouchableOpacity>
         <View style={styles.userInfo}>
           <Image
-            source={require("@/assets/images/citas.jpg")} // AsegÃºrate que la imagen exista
+            source={require("@/assets/images/citas.jpg")}
             style={styles.avatar}
           />
           <View>
-            <Text style={styles.username}>Juan PÃ©rez</Text>
+            <Text style={styles.username}>Juan Perez</Text>
             <Text style={styles.role}>Paseador</Text>
           </View>
         </View>

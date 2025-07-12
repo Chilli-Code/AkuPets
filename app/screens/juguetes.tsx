@@ -1,10 +1,9 @@
 import { Text, View } from 'react-native';
 
-const JuguetesScreen = () => {
+export default function juguetes() {
   return (
-    <View>
-      <Text>Juguetes</Text>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Pantalla Juguetes</Text>
     </View>
   );
-};
-export default JuguetesScreen;
+}

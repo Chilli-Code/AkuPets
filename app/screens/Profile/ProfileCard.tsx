@@ -3,14 +3,21 @@ import {
   Animated,
   Dimensions,
   Image,
+  ImageBackground,
   PanResponder,
+  Platform,
   Pressable,
   ScrollView,
+  StatusBar,
   StyleSheet,
   Text,
-  View,
+  TouchableOpacity,
+  View
 } from 'react-native';
 
+import { useRouter } from 'expo-router';
+
+import { Feather } from '@expo/vector-icons';
 const { width } = Dimensions.get('window');
 
 type Comment = {
@@ -50,13 +57,13 @@ export default function PerfilScreen() {
   const [person, setPerson] = useState<Person | null>(null);
   const [index, setIndex] = useState<number>(0);
   const translateX = useRef(new Animated.Value(0)).current;
-
+  const router = useRouter();
   useEffect(() => {
     // Si estás usando async storage, reemplaza esto por su API
     // Este es un mock para evitar el error
     const mockPerson: Person = {
       img: 'https://yourcdn.com/user/profile.jpg',
-      name: 'Nombre Apellido',
+      name: 'Laura Barrios',
       calification: '4.9',
     };
     setPerson(mockPerson);
@@ -84,12 +91,19 @@ export default function PerfilScreen() {
   if (!person) return <Text style={{ padding: 20 }}>Cargando...</Text>;
 
   return (
-    <ScrollView style={styles.container}>
-      <Image source={{ uri: 'https://yourcdn.com/img/pass.png' }} style={styles.backgroundImage} />
+    <View style={{backgroundColor:"#000", justifyContent:"center" }}>
+      <ImageBackground source={require('@/assets/images/FondoShop.png')} resizeMode='cover' style={styles.container}>
+            <View style={styles.header}>
+        <TouchableOpacity style={styles.bg} onPress={() => router.back()} >
+          <Feather name='arrow-left' size={20} />
+        </TouchableOpacity>
+
+      </View>
 
       <View style={styles.profileImageWrapper}>
-        <Image source={{ uri: person.img }} style={styles.profileImage} />
+        <Image source={require('@/assets/images/citas.jpg')} style={styles.profileImage} />
       </View>
+      <ScrollView style={{borderTopLeftRadius:50,borderTopRightRadius:50,backgroundColor:"#fff", marginTop:100}}>
 
       <View style={styles.infoSection}>
         <Text style={styles.title}>{person.name}</Text>
@@ -148,25 +162,46 @@ export default function PerfilScreen() {
           <Text style={styles.buttonText}>Seleccionar paseador</Text>
         </Pressable>
       </View>
-    </ScrollView>
+
+      </ScrollView>
+    </ImageBackground>
+
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    display:"flex",
+    justifyContent:"center",
   },
+    header: {  
+      paddingHorizontal: 0,
+    },
+    bg: {
+      width: 40,
+      shadowRadius: 10,
+      elevation: 4, // para Android, puedes ajustar este valor
+      backgroundColor: '#FFFFFF', // necesario para que se vea la sombra
+      borderRadius: 20,
+      padding: 10,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
+    },
   backgroundImage: {
     width: '100%',
     height: 250,
   },
   profileImageWrapper: {
     position: 'absolute',
-    top: 180,
+    top: 110,
     left: width / 2 - 60,
     backgroundColor: '#fff',
     borderRadius: 60,
     padding: 5,
+    zIndex:55,
     elevation: 5,
   },
   profileImage: {
@@ -177,9 +212,11 @@ const styles = StyleSheet.create({
     borderColor: '#fff',
   },
   infoSection: {
-    marginTop: 80,
+   marginTop: 80,
     paddingHorizontal: 20,
     alignItems: 'center',
+
+
   },
   title: {
     fontSize: 24,
@@ -254,14 +291,21 @@ const styles = StyleSheet.create({
   commentCard: {
     width: width - 40,
     padding: 15,
+    height:100,
     backgroundColor: '#fff',
     borderRadius: 10,
-    shadowColor: '#00000024',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+   // shadowColor: '#00000024',
+   // shadowOffset: { width: 0, height: 2 },
+   // shadowOpacity: 0.2,
+   // shadowRadius: 4,
     elevation: 5,
     marginVertical: 10,
+          // iOS shadow (equivalente al de Figma)
+  shadowColor: 'rgba(0, 0, 0, 0.36)',
+  shadowOffset: { width: 0, height: 0 },
+  shadowOpacity: 0.4,
+  shadowRadius: 4,
+
   },
   commentHeader: {
     flexDirection: 'row',
@@ -269,26 +313,27 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   commentAuthor: {
-    fontSize: 14,
+    fontSize: 17,
     fontWeight: '700',
     color: '#282b2c',
   },
   commentRating: {
-    fontSize: 12,
+    fontSize: 13,
     color: '#696b6b',
   },
   commentText: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#696b6b',
   },
   button: {
-    marginTop: 20,
+    marginTop: 14,
     backgroundColor: '#007AFF',
     paddingVertical: 12,
     paddingHorizontal: 32,
     borderRadius: 10,
     width: '100%',
     alignItems: 'center',
+    marginBottom:20,
   },
   buttonText: {
     color: '#fff',

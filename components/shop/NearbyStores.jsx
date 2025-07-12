@@ -1,6 +1,7 @@
 import IconMap from "@/assets/icons/shop/IconMap";
 import { MapPin } from 'lucide-react-native';
 import {
+  ImageBackground,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -12,7 +13,11 @@ export default function NearbyStores() {
 <View style={styles.section}>
         <Text style={styles.sectionTitle}>Tiendas cerca (+12)</Text>
         <View style={styles.mapCard}>
-          <View style={styles.mapArea}>
+          <ImageBackground 
+          source={require('@/assets/images/MapaPrueba.jpg')}
+          resizeMode="cover"
+          style={styles.mapArea}
+          >
             <View style={[styles.mapMarker, { top: 16, left: 24 }]}>
               <MapPin size={16} color="#fff" />
             </View>
@@ -29,7 +34,7 @@ export default function NearbyStores() {
             <TouchableOpacity style={styles.viewListButton}>
               <Text style={styles.viewListText}>📋 Ver lista</Text>
             </TouchableOpacity>
-          </View>
+          </ImageBackground>
         </View>
       </View>
 
@@ -39,7 +44,7 @@ export default function NearbyStores() {
 
 const styles = StyleSheet.create({
 
-      section: { paddingHorizontal: 16, paddingBottom: 16 },
+  section: { paddingHorizontal: 16, paddingBottom: 16 },
   sectionTitle: {
     fontSize: 24,
     fontWeight: '700',
@@ -55,7 +60,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto_400Regular',
   },
   mapCard: { borderRadius: 8, overflow: 'hidden', backgroundColor: '#E5E7EB' },
-  mapArea: { height: 128, backgroundColor: '#D1D5DB', position: 'relative' },
+  mapArea: { 
+    height: 128,
+    //backgroundColor:'#D1D5DB',
+    position:'relative'
+  },
   mapMarker: {
     position: 'absolute',
     width: 24,

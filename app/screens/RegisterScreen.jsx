@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     width:"90%",
     alignItems: "center",
     // marginTop: 16,
-    marginBottom: 5, // espacio extra para scroll
+    marginBottom: 10, // espacio extra para scroll
   },
   buttonText: {
     color: "#fff",

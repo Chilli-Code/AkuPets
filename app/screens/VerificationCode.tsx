@@ -194,12 +194,12 @@ const styles = StyleSheet.create({
   },
   footer: {
     paddingTop: 12,
-    marginBottom:5,
+    marginBottom:10,
     // mantén el footer abajo:
     justifyContent: "flex-end",
   },
   subtitle2:{
-        fontSize: 18,
+      fontSize: 18,
     color: "#6b7280",
     fontWeight:"600",    
     textAlign: "center",

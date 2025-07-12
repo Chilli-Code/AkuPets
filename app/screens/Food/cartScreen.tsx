@@ -141,9 +141,10 @@ const styles = StyleSheet.create({
   },
   actions: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     marginTop: 8,
+    gap:10,
   },
   qtyBox: {
     flexDirection: 'row',
